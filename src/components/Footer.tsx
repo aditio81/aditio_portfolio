@@ -46,13 +46,13 @@ export default function Footer() {
           
           {/* Social Links */}
           <div className="flex flex-wrap gap-6 font-mono text-sm text-muted">
-            <Link href="https://linkedin.com/in/aditio" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://www.linkedin.com/in/aditio-dwi-novanto-1660901b8/" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
               LINKEDIN <span className="text-xs">↗</span>
             </Link>
-            <Link href="https://behance.net/aditio" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://www.behance.net/aditiodwin" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
               BEHANCE <span className="text-xs">↗</span>
             </Link>
-            <Link href="https://github.com/aditio" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://github.com/aditio81" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
               GITHUB <span className="text-xs">↗</span>
             </Link>
           </div>
