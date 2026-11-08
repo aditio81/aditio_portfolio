@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
 
 export default function OrbiRive() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
+
   const { canvas, rive, RiveComponent } = useRive({
     src: "/orbi-hero.riv",
     autoplay: true,
     stateMachine: "State Machine 1",
+    onLoad: handleLoad,
     shouldDisableRiveListeners: false,
     layout: new Layout({
       // Gunakan Fit.Contain agar seluruh artboard terlihat tanpa terpotong
@@ -108,7 +112,12 @@ export default function OrbiRive() {
         <RiveComponent 
           className="w-full h-full" 
           // Memaksa canvas mengisi container secara eksplisit
-          style={{ width: '100%', height: '100%' }} 
+          style={{
+            width: "100%",
+            height: "100%",
+            opacity: isLoaded ? 1 : 0,
+            transition: "opacity 100ms ease",
+          }}
         />
       )}
     </div>

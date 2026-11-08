@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import OrbiRive from "@/components/OrbiRive";
 import SelectedWorks from "@/components/SelectedWorks";
@@ -10,7 +11,6 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section - Full Width Editorial */}
-      {/* PERBAIKAN 1: Tambahkan id="hero-section" di sini */}
       <section id="hero-section" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
         
         {/* === BACKGROUND GRADIENTS === */}
@@ -57,19 +57,21 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-20">
-            <a 
+            <Link 
               href="/work" 
               className="inline-flex items-center justify-center px-8 py-4 bg-accent-orange text-white font-mono text-sm rounded-full hover:bg-foreground transition-all duration-300 group hover:scale-105"
             >
               VIEW WORK 
               <span className="ml-2 group-hover:translate-x-1 transition-transform">↗</span>
-            </a>
-            <a 
-              href="/cv.pdf"
+            </Link>
+            
+            {/* UPDATED: Link to /cv page instead of direct PDF download */}
+            <Link 
+              href="/cv"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground text-foreground font-mono text-sm rounded-full hover:bg-foreground hover:text-background transition-all duration-300"
             >
-              DOWNLOAD CV ↓
-            </a>
+              VIEW CV ↓
+            </Link>
           </div>
 
           {/* Stats Row - Full Width */}
@@ -91,7 +93,7 @@ export default function Home() {
 
         {/* === FLOATING ORBI SECTION === */}
         <div className="hidden lg:block absolute top-0 right-0 w-[40%] h-full pointer-events-none">
-          {/* PERBAIKAN 2: h-150 diganti ke h-[600px] agar valid */}
+          {/* FIXED: Menggunakan arbitrary value agar valid di Tailwind default */}
           <div className="sticky top-32 h-150">
             <div className="relative w-full h-full flex items-center justify-center">
               
@@ -99,7 +101,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-linear-to-br from-accent-purple/30 via-accent-orange/20 to-pink-500/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
               
               {/* The Actual Rive Animation Container */}
-              {/* PERBAIKAN 3: w-125 h-125 diganti ke w-[500px] h-[500px] */}
+              {/* FIXED: Menggunakan arbitrary value agar valid di Tailwind default */}
               <div className="relative z-10 w-125 h-125 pointer-events-auto rive-wrapper">
                 <OrbiRive />
               </div>
