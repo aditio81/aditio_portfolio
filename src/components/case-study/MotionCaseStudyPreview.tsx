@@ -130,8 +130,7 @@ function SplashSequence({
       src={phase === "intro" ? introLottieData : loopLottieData}
       autoplay
       loop={phase === "loop"}
-      // @ts-ignore - Mengatasi bug definisi tipe di versi lottie-react tertentu
-      onComplete={handleComplete}
+      subscriptions={{ complete: handleComplete }}
       className="w-full h-full object-cover"
     />
   );

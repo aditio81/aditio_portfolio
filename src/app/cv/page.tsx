@@ -169,22 +169,26 @@ export default function CVPage() {
     <main className="min-h-screen bg-[#FAFAFA] text-foreground font-sans antialiased selection:bg-foreground selection:text-white">
       
       {/* Sticky Action Bar */}
-      <div className="sticky top-0 z-50 bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E5E5E5] py-4 px-6 flex items-center justify-between print:hidden">
-        <Link href="/" className="text-sm font-medium text-[#666666] hover:text-foreground transition-colors flex items-center gap-2">
+      <div className="sticky top-0 z-50 bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E5E5E5] py-4 px-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
+        <Link href="/" className="whitespace-nowrap text-sm font-medium text-[#666666] hover:text-foreground transition-colors flex items-center gap-2">
           {t.backBtn}
         </Link>
         
-        <div className="flex items-center gap-3">
+        <div className="ml-auto flex shrink-0 items-center gap-3">
           {/* Language Toggle */}
           <div className="flex bg-[#E5E5E5] rounded-md p-1">
             <button 
+              type="button"
               onClick={() => setLang("id")}
+              aria-pressed={lang === "id"}
               className={`px-3 py-1.5 text-xs font-bold rounded transition-all ${lang === "id" ? "bg-white text-foreground shadow-sm" : "text-[#666666] hover:text-foreground"}`}
             >
               ID
             </button>
             <button 
+              type="button"
               onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
               className={`px-3 py-1.5 text-xs font-bold rounded transition-all ${lang === "en" ? "bg-white text-foreground shadow-sm" : "text-[#666666] hover:text-foreground"}`}
             >
               EN
@@ -192,6 +196,7 @@ export default function CVPage() {
           </div>
 
           <button 
+            type="button"
             onClick={handlePrint}
             className="px-4 py-2 bg-foreground text-white text-sm font-medium rounded-md hover:bg-[#333333] transition-colors flex items-center gap-2"
           >
