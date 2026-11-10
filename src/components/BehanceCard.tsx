@@ -1,4 +1,4 @@
-import { Project } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -6,9 +6,7 @@ import { useState } from "react";
 export default function BehanceCard({ project }: { project: Project }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const isUIUX = project.category === "uiux";
   const isMotion = project.category === "motion";
-  const isVideo = project.category === "video";
 
   const imageSize = "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw";
 

@@ -1,9 +1,7 @@
 import Link from "next/link";
 
 export default function Footer() {
-  // PERBAIKAN: Hardcode tahun untuk menghindari error prerendering Next.js.
-  // Ini adalah praktik standar untuk static site agar tetap 100% static dan super cepat.
-  const currentYear = "2026"; 
+  const currentYear = "2026";
 
   return (
     <footer className="bg-background border-t border-border pt-24 pb-12">
@@ -12,7 +10,7 @@ export default function Footer() {
         {/* Massive CTA Headline */}
         <div className="mb-16">
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground leading-[0.9] mb-6">
-            Let's build something <br className="hidden md:block" />
+            Let&apos;s build something <br className="hidden md:block" />
             <span className="text-muted">impactful together.</span>
           </h2>
           
@@ -46,13 +44,13 @@ export default function Footer() {
           
           {/* Social Links */}
           <div className="flex flex-wrap gap-6 font-mono text-sm text-muted">
-            <Link href="https://www.linkedin.com/in/aditio-dwi-novanto-1660901b8/" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://www.linkedin.com/in/aditio-dwi-novanto-1660901b8/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-2">
               LINKEDIN <span className="text-xs">↗</span>
             </Link>
-            <Link href="https://www.behance.net/aditiodwin" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://www.behance.net/aditiodwin" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-2">
               BEHANCE <span className="text-xs">↗</span>
             </Link>
-            <Link href="https://github.com/aditio81" target="_blank" className="hover:text-foreground transition-colors flex items-center gap-2">
+            <Link href="https://github.com/aditio81" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-2">
               GITHUB <span className="text-xs">↗</span>
             </Link>
           </div>

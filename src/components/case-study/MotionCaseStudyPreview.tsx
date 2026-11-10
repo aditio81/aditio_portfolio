@@ -2,6 +2,9 @@
 
 import React from "react";
 import { Lottie } from "lottie-react";
+import Image from "next/image";
+import type { Heading } from "@/content/types";
+import SectionHeading from "./SectionHeading";
 
 // === 1. DEFINISI TIPE YANG ROBUST (Discriminated Union) ===
 export type MotionPreviewData =
@@ -35,12 +38,14 @@ export type MotionPreviewData =
 
 interface Props {
   data: MotionPreviewData;
+  heading?: Heading;
 }
 
 // === 2. KOMPONEN UTAMA ===
-export default function MotionCaseStudyPreview({ data }: Props) {
+export default function MotionCaseStudyPreview({ data, heading }: Props) {
   return (
     <section className="py-24 md:py-32 container mx-auto px-6">
+      <SectionHeading heading={heading} />
       <div className="flex justify-center">
         {/* TypeScript otomatis tahu properti apa yang tersedia di setiap blok ini */}
         
@@ -85,10 +90,12 @@ function SplashMockup({
           <Lottie src={lottieData} autoplay loop className="w-full h-full object-cover" />
         )}
       </div>
-      <img 
-        src="/mockups/iphone-12-pro-max--gold.svg" 
-        alt="Phone Frame"
-        className="absolute inset-0 w-full h-full z-10 pointer-events-none object-contain"
+      <Image
+        src="/mockups/iphone-12-pro-max--gold.svg"
+        alt=""
+        fill
+        sizes="300px"
+        className="pointer-events-none z-10 object-contain"
         style={{ filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,0.1))' }}
       />
     </div>

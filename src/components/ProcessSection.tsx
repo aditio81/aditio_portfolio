@@ -29,7 +29,7 @@ export default function ProcessSection() {
             </div>
             <h3 className="text-3xl font-bold text-foreground mb-4">01. Discover & Define</h3>
             <p className="text-muted leading-relaxed mb-8 max-w-lg">
-              Mapping user pain points, business goals, and technical constraints before sketching a single pixel. Ensuring the 'why' is solid before the 'how'.
+              Mapping user pain points, business goals, and technical constraints before sketching a single pixel. Ensuring the &apos;why&apos; is solid before the &apos;how&apos;.
             </p>
             <div className="flex flex-wrap gap-2">
               {["User Journeys", "Information Architecture", "Strategic Scope"].map((tag) => (

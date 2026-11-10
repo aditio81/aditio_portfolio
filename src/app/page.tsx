@@ -30,7 +30,7 @@ export default function Home() {
           <div className="mb-8">
             <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-muted bg-surface/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-orange animate-pulse"></span>
-              Status: Available for Select Freelance & Lead Roles // Q2-Q3 2026
+              Available for select freelance and lead roles
             </span>
           </div>
 
@@ -65,7 +65,6 @@ export default function Home() {
               <span className="ml-2 group-hover:translate-x-1 transition-transform">↗</span>
             </Link>
             
-            {/* UPDATED: Link to /cv page instead of direct PDF download */}
             <Link 
               href="/cv"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground text-foreground font-mono text-sm rounded-full hover:bg-foreground hover:text-background transition-all duration-300"

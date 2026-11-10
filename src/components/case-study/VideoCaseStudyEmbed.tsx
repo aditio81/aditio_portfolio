@@ -1,11 +1,16 @@
+import type { Heading } from "@/content/types";
+import SectionHeading from "./SectionHeading";
+
 interface Props {
   videoId: string; // YouTube Video ID (contoh: "dQw4w9WgXcQ")
   title?: string;
+  heading?: Heading;
 }
 
-export default function VideoCaseStudyEmbed({ videoId, title }: Props) {
+export default function VideoCaseStudyEmbed({ videoId, title, heading }: Props) {
   return (
     <section className="py-24 md:py-32 container mx-auto px-6">
+      <SectionHeading heading={heading} />
       <div className="max-w-5xl mx-auto">
         {/* YouTube Embed Container dengan Aspect Ratio 16:9 */}
         <div className="relative w-full aspect-video bg-[#1B1B1D] rounded-xl overflow-hidden border-2 border-[#1B1B1D] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
