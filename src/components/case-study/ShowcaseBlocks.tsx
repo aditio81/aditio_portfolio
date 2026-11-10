@@ -2,6 +2,8 @@ import type { ShowcaseBlock } from "@/content/types";
 import UICaseStudyMockups from "./UICaseStudyMockups";
 import DesignSystemBlock from "./DesignSystemBlock";
 import { designSystems } from "@/design-systems";
+import MotionPlayerBlock from "./MotionPlayerBlock";
+import MotionSpecBlock from "./MotionSpecBlock";
 import TimelineBlock from "./TimelineBlock";
 import SitemapBlock from "./SitemapBlock";
 import AIWorkflowBlock from "./AIWorkflowBlock";
@@ -24,6 +26,10 @@ function Block({ block }: { block: ShowcaseBlock }) {
       return <SpotlightBlock data={block.data} heading={block.heading} />;
     case "prototype":
       return <PrototypeBlock data={block.data} heading={block.heading} />;
+    case "motionPlayer":
+      return <MotionPlayerBlock data={block.data} heading={block.heading} />;
+    case "motionSpec":
+      return <MotionSpecBlock data={block.data} heading={block.heading} />;
     case "timeline":
       return <TimelineBlock data={block.data} heading={block.heading} />;
     case "sitemap":
