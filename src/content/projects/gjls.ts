@@ -16,7 +16,7 @@ export const gjls: CaseStudy = {
     "A concept redesign that turns a name people read as “Gak Jelas” into a company brands can trust, built to give the GJLS account team stronger footing when they pitch.",
   disclosure:
     "This is a self-initiated concept redesign, not an official GJLS project. A formal proposal has been sent to GJLS and is awaiting a response.",
-  cover: "/images/case-studies/cover2.png",
+  cover: "/images/case-studies/cover1.png",
 
   card: {
     description: "A concept redesign that turns “Gak Jelas” into a company brands can trust.",
@@ -120,7 +120,7 @@ export const gjls: CaseStudy = {
             { label: "Youtube" },
             { label: "Event" },
             { label: "Merch", status: "empty" },
-            { label: "Digital Download" },
+            { label: "Digital Download",  status: "empty" },
             { label: "Hubungi Kami" },
           ],
         },
@@ -138,6 +138,21 @@ export const gjls: CaseStudy = {
         caption: "The new navigation adds a dedicated Partnership entry for sponsors.",
       },
     },
+        {
+      type: "flow",
+      heading: {
+        eyebrow: "Exploration",
+        title: "From AI Reference to My Own System.",
+        description: "References generated with Google Stitch, used only as layout inspiration and rebuilt on my own design system in Figma.",
+      },
+      data: {
+        steps: [
+          { title: "AI moodboard", description: "Generated with Stitch.", image: "/images/case-studies/moodboard.png" },
+          { title: "AI layout reference", description: "Used as layout inspiration only.", image: "/images/case-studies/layout-ref.png" },
+          { title: "Final page", description: "Rebuilt on my design system in Figma.", image: "/images/case-studies/homepage-after.png" },
+        ],
+      },
+    },
     { type: "designSystem", id: "gjls" },
     {
       type: "spotlight",
@@ -147,7 +162,7 @@ export const gjls: CaseStudy = {
         description: "Scroll the page, or select a number to jump to a decision.",
       },
       data: {
-        image: "/images/case-studies/homepage-after-full.webp",
+        image: "/images/case-studies/homepage-after-full.png",
         width: 1280,
         height: 6857,
         scroll: true,
@@ -181,7 +196,7 @@ export const gjls: CaseStudy = {
             description: "Interactive episode cards with view counts, duration, and category tags. The bento grid layout allows quick scanning while maintaining visual hierarchy.",
             image: "/images/case-studies/05.png",
             label: "Feature",
-            highlight: "1.2M+ Views Display",
+            highlight: "164M+ Views Display",
           },
         ],
       },
