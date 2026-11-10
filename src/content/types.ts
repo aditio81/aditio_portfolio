@@ -5,9 +5,6 @@ import type { FlowData } from "@/components/case-study/FlowBlock";
 import type { BeforeAfterData } from "@/components/case-study/BeforeAfterBlock";
 import type { SpotlightData } from "@/components/case-study/SpotlightBlock";
 import type { PrototypeData } from "@/components/case-study/PrototypeBlock";
-import type { AIWorkflowData } from "@/components/case-study/AIWorkflowBlock";
-import type { SitemapData } from "@/components/case-study/SitemapBlock";
-import type { TimelineData } from "@/components/case-study/TimelineBlock";
 import type { MotionPlayerData } from "@/components/case-study/MotionPlayerBlock";
 import type { MotionSpecData } from "@/components/case-study/MotionSpecBlock";
 
@@ -76,9 +73,6 @@ export type ShowcaseBlock =
   | { type: "prototype"; data: PrototypeData; heading?: Heading }     // prototipe Figma interaktif
   | { type: "motionPlayer"; data: MotionPlayerData; heading?: Heading } // pemutar Lottie dengan kontrol & state
   | { type: "motionSpec"; data: MotionSpecData; heading?: Heading }     // spec sheet animasi (durasi, fps, ukuran)
-  | { type: "timeline"; data: TimelineData; heading?: Heading }       // fase proses & durasi
-  | { type: "sitemap"; data: SitemapData; heading?: Heading }         // struktur situs lama vs baru
-  | { type: "aiWorkflow"; data: AIWorkflowData; heading?: Heading }   // pembagian peran AI vs kamu (How I used AI)
   | { type: "motion"; data: MotionPreviewData; heading?: Heading }   // Lottie / video animasi
   | { type: "video"; youtubeId: string; title?: string; heading?: Heading } // YouTube (explainer)
   | { type: "designSystem"; id: DesignSystemId; heading?: Heading };  // design system interaktif (lihat src/design-systems)

@@ -27,8 +27,6 @@ function Block({ block }: { block: ShowcaseBlock }) {
       return <MotionPlayerBlock data={block.data} heading={block.heading} />;
     case "motionSpec":
       return <MotionSpecBlock data={block.data} heading={block.heading} />;
-    case "timeline":
-      return <MotionCaseStudyPreview data={block.data} heading={block.heading} />;
     case "video":
       return <VideoCaseStudyEmbed videoId={block.youtubeId} title={block.title} heading={block.heading} />;
     case "designSystem":
