@@ -4,6 +4,7 @@ import { CATEGORY_LABEL, STARTING_POINT_LABEL, type CaseStudy } from "@/content/
 export default function CaseStudyHero({ study }: { study: CaseStudy }) {
   const tags = [
     CATEGORY_LABEL[study.category],
+    ...(study.alsoIn ?? []).map((c) => CATEGORY_LABEL[c]),
     study.startingPoint ? STARTING_POINT_LABEL[study.startingPoint] : null,
     study.domain ?? null,
   ].filter((t): t is string => Boolean(t));
@@ -38,10 +39,10 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
         )}
       </div>
 
-      <div className="grid gap-6 border-y border-border py-6 sm:grid-cols-3">
+      <div className={`grid gap-6 border-y border-border py-6 ${study.tools.length > 0 ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
         <Meta label="Role" value={study.role} />
         <Meta label={study.duration ? "Year / Duration" : "Year"} value={study.duration ? `${study.year} / ${study.duration}` : study.year} />
-        <Meta label="Tools" value={study.tools.join(" · ")} />
+        {study.tools.length > 0 && <Meta label="Tools" value={study.tools.join(" · ")} />}
       </div>
 
       {showCover && study.cover && (

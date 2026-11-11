@@ -17,6 +17,7 @@ export interface PageMockup {
   highlight?: string; // sorotan fitur, opsional
   width?: number;     // opsional: ukuran asli gambar (px) agar layout tidak bergeser saat memuat
   height?: number;
+  scroll?: boolean;   // untuk halaman PANJANG: gambar tampil di bingkai yang bisa digulir
 }
 
 interface Props {
@@ -72,20 +73,26 @@ function StackedItem({ page, index }: { page: PageMockup; index: number }) {
       <div className="relative">
         <div className="absolute -inset-4 rounded-3xl bg-linear-to-r from-accent-orange/10 via-accent-purple/10 to-blue-600/10 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
         <div className="relative overflow-hidden rounded-2xl border-2 border-border bg-surface shadow-xl">
-          <Image
-            src={page.image}
-            alt={page.title}
-            width={page.width ?? 1600}
-            height={page.height ?? 1000}
-            sizes="(min-width: 1024px) 1100px, 100vw"
-            className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.01]"
-          />
+          <div className={page.scroll ? "max-h-[80vh] overflow-y-auto" : ""}>
+            <Image
+              src={page.image}
+              alt={page.title}
+              width={page.width ?? 1600}
+              height={page.height ?? 1000}
+              sizes="(min-width: 1024px) 1100px, 100vw"
+              quality={page.scroll ? 85 : undefined}
+              className={`h-auto w-full ${page.scroll ? "" : "transition-transform duration-700 group-hover:scale-[1.01]"}`}
+            />
+          </div>
           {page.highlight && (
             <div className="absolute right-6 top-6 rounded-lg bg-foreground px-4 py-2 font-mono text-xs font-bold text-background shadow-lg">
               ✦ {page.highlight}
             </div>
           )}
         </div>
+        {page.scroll && (
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted">Scroll inside the frame to see the full page</p>
+        )}
       </div>
     </div>
   );
@@ -96,13 +103,14 @@ function DeviceItem({ page }: { page: PageMockup }) {
   return (
     <figure className="flex flex-col items-center">
       <div className="w-full max-w-[280px] rounded-[2.5rem] border-[6px] border-neutral-900 bg-neutral-900 shadow-xl">
-        <div className="overflow-hidden rounded-[2rem] bg-surface">
+        <div className={`rounded-[2rem] bg-surface ${page.scroll ? "max-h-[560px] overflow-y-auto" : "overflow-hidden"}`}>
           <Image
             src={page.image}
             alt={page.title}
             width={page.width ?? 390}
             height={page.height ?? 844}
             sizes="280px"
+            quality={page.scroll ? 85 : undefined}
             className="h-auto w-full"
           />
         </div>
@@ -112,6 +120,7 @@ function DeviceItem({ page }: { page: PageMockup }) {
         <h3 className="mt-3 text-lg font-bold text-foreground">{page.title}</h3>
         {page.description && <p className="mt-2 text-sm leading-relaxed text-muted">{page.description}</p>}
         {page.highlight && <p className="mt-3 font-mono text-xs font-bold text-accent-orange">✦ {page.highlight}</p>}
+        {page.scroll && <p className="mt-3 font-mono text-[11px] uppercase tracking-wider text-muted">Scroll inside the phone to see the full page</p>}
       </figcaption>
     </figure>
   );

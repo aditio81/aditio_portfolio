@@ -11,6 +11,9 @@ import type { TimelineData } from "@/components/case-study/TimelineBlock";
 import type { MotionPlayerData } from "@/components/case-study/MotionPlayerBlock";
 import type { MotionSpecData } from "@/components/case-study/MotionSpecBlock";
 import type { MotionSetData } from "@/components/case-study/MotionSetBlock";
+import type { VideoPlayerData } from "@/components/case-study/VideoPlayerBlock";
+import type { CreditsData } from "@/components/case-study/CreditsBlock";
+import type { VideoFileData } from "@/components/case-study/VideoFileBlock";
 
 // ============================================================================
 // SKEMA SATU-UNTUK-SEMUA CASE STUDY
@@ -76,6 +79,9 @@ export type ShowcaseBlock =
   | { type: "spotlight"; data: SpotlightData; heading?: Heading }     // satu layar + catatan keputusan bernomor
   | { type: "prototype"; data: PrototypeData; heading?: Heading }     // prototipe Figma interaktif
   | { type: "motionPlayer"; data: MotionPlayerData; heading?: Heading } // pemutar Lottie dengan kontrol & state
+  | { type: "videoPlayer"; data: VideoPlayerData; heading?: Heading }   // video ringan (poster dulu) + chapter
+  | { type: "videoFile"; data: VideoFileData; heading?: Heading }        // pratinjau MP4 ringan (tanpa suara, berulang)
+  | { type: "credits"; data: CreditsData; heading?: Heading }           // "Who did what": pembagian tugas
   | { type: "motionSet"; data: MotionSetData; heading?: Heading }       // sekumpulan animasi mandiri (spesifikasi dibaca otomatis)
   | { type: "motionSpec"; data: MotionSpecData; heading?: Heading }     // spec sheet animasi (durasi, fps, ukuran)
   | { type: "timeline"; data: TimelineData; heading?: Heading }       // fase proses & durasi
@@ -97,7 +103,9 @@ export interface CaseStudy {
   slug: string;              // dipakai di URL: /work/<slug>
   title: string;
   client?: string;
-  category: Category;
+  category: Category;        // kategori UTAMA: menentukan bentuk kartu & urutan halaman
+  alsoIn?: Category[];       // kategori tambahan (proyek yang mencakup beberapa jenis pekerjaan)
+  order?: "story-first" | "work-first"; // paksa urutan halaman (default: UI/UX = cerita dulu, lainnya = karya dulu)
   startingPoint?: StartingPoint;
   domain?: string;           // contoh: "E-commerce", "Dashboard", "Entertainment"
 

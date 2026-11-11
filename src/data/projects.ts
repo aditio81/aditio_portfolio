@@ -8,7 +8,8 @@ export type ProjectCategory = Category;
 export interface Project {
   id: string;
   title: string;
-  category: ProjectCategory;
+  category: ProjectCategory;      // utama
+  categories: ProjectCategory[];  // utama + tambahan (untuk filter di /work)
   role: string;
   year: string;
   description: string;
@@ -24,6 +25,7 @@ export const projects: Project[] = caseStudies.map((c) => ({
   id: c.slug,
   title: c.title,
   category: c.category,
+  categories: [c.category, ...(c.alsoIn ?? [])],
   role: c.role,
   year: c.year,
   description: c.card.description,

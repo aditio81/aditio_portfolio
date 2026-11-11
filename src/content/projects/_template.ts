@@ -47,6 +47,8 @@ export const template: CaseStudy = {
   // prototype             | proyek dengan prototipe Figma    | link prototipe publik (+ gambar pratinjau opsional)
   // designSystem          | proyek yang punya DS             | folder di src/design-systems
   // motionPlayer          | animasi Lottie dgn 1+ state      | file Lottie JSON per state (+ nama, loop atau sekali)
+  // videoPlayer           | explainer / video promo          | link YouTube (Unlisted, bukan Private) + poster + chapter (waktu & judul)
+  // credits               | proyek tim / dibantu AI          | daftar tugas + pemiliknya (aku, klien, AI, lainnya)
   // motionSet             | set animasi mandiri (7 popup)    | file Lottie per animasi + pemicu, mood, storyboard (spek dibaca otomatis)
   // motionSpec            | spec & handoff animasi           | durasi, fps, artboard, ukuran file (ukur dari file asli)
   // timeline              | tunjukkan fase & durasi kerja    | 3-5 fase: nama + lama (+ weeks untuk bilah)
@@ -64,6 +66,8 @@ export const template: CaseStudy = {
     // { type: "prototype", data: { src: "https://www.figma.com/proto/...", poster: "" } },
     // { type: "designSystem", id: "nama-proyek" }, // daftarkan dulu di src/design-systems
     // { type: "motionPlayer", data: { states: [{ name: "intro", src: "/lotties/intro.json" }, { name: "loop", src: "/lotties/loop.json", loop: true }] } },
+    // { type: "videoPlayer", data: { youtubeId: "XXXXXXXXXXX", poster: "/images/xxx.png", chapters: [{ time: "0:00", title: "Hook", note: "Kenapa dibuka begini" }] } },
+    // { type: "credits", data: { rows: [{ task: "Script", owner: "me" }, { task: "Voice-over", owner: "ai" }] } },
     // { type: "motionSet", data: { items: [{ id: "a", title: "Judul", src: "/lotties/proyek/a.json", trigger: "Kapan muncul" }] } },
     // { type: "motionSpec", data: { files: [{ name: "intro.json", format: "Lottie JSON", duration: "2 s", fps: 60, size: "120 KB" }] } },
     // { type: "timeline", data: { total: "3 months", phases: [{ name: "Audit", duration: "2 weeks", weeks: 2 }] } },

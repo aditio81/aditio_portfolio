@@ -9,7 +9,7 @@ import CaseStudyLinks from "./CaseStudyLinks";
 // Urutan: Hero → (Cerita ⇄ Karya) → Outcome → Links
 // UI/UX: cerita dulu baru karya. Lottie & Explainer: karya dulu (karya adalah bintangnya).
 export default function CaseStudyTemplate({ study }: { study: CaseStudy }) {
-  const workFirst = study.category !== "uiux";
+  const workFirst = study.order ? study.order === "work-first" : study.category !== "uiux";
 
   const story = getStorySections(study.story).length > 0 ? <CaseStudyStory story={study.story} /> : null;
   const showcase = study.showcase.length > 0 ? <ShowcaseBlocks blocks={study.showcase} /> : null;

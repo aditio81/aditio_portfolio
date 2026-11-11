@@ -12,7 +12,7 @@ export default function WorkPage() {
   const filteredProjects = 
     activeFilter === "all" 
       ? projects 
-      : projects.filter((p) => p.category === activeFilter);
+      : projects.filter((p) => p.categories.includes(activeFilter));
 
   return (
     <main className="min-h-screen bg-background text-foreground font-sans">
@@ -41,19 +41,19 @@ export default function WorkPage() {
             />
             <FilterButton 
               label="UI/UX Design" 
-              count={projects.filter(p => p.category === "uiux").length} 
+              count={projects.filter(p => p.categories.includes("uiux")).length} 
               isActive={activeFilter === "uiux"} 
               onClick={() => setActiveFilter("uiux")} 
             />
             <FilterButton 
               label="Motion & Lottie" 
-              count={projects.filter(p => p.category === "motion").length} 
+              count={projects.filter(p => p.categories.includes("motion")).length} 
               isActive={activeFilter === "motion"} 
               onClick={() => setActiveFilter("motion")} 
             />
             <FilterButton 
               label="Explainer Video" 
-              count={projects.filter(p => p.category === "video").length} 
+              count={projects.filter(p => p.categories.includes("video")).length} 
               isActive={activeFilter === "video"} 
               onClick={() => setActiveFilter("video")} 
             />
