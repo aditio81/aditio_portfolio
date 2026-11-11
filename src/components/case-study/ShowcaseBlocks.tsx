@@ -4,6 +4,8 @@ import DesignSystemBlock from "./DesignSystemBlock";
 import { designSystems } from "@/design-systems";
 import MotionPlayerBlock from "./MotionPlayerBlock";
 import MotionSpecBlock from "./MotionSpecBlock";
+import MotionSetBlock from "./MotionSetBlock";
+import { readLottieSpec } from "@/lib/lottie-spec";
 import TimelineBlock from "./TimelineBlock";
 import SitemapBlock from "./SitemapBlock";
 import AIWorkflowBlock from "./AIWorkflowBlock";
@@ -28,6 +30,10 @@ function Block({ block }: { block: ShowcaseBlock }) {
       return <PrototypeBlock data={block.data} heading={block.heading} />;
     case "motionPlayer":
       return <MotionPlayerBlock data={block.data} heading={block.heading} />;
+    case "motionSet": {
+      const specs = Object.fromEntries(block.data.items.map((i) => [i.id, readLottieSpec(i.src)]));
+      return <MotionSetBlock data={block.data} specs={specs} heading={block.heading} />;
+    }
     case "motionSpec":
       return <MotionSpecBlock data={block.data} heading={block.heading} />;
     case "timeline":

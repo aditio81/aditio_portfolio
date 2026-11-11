@@ -10,6 +10,7 @@ import type { SitemapData } from "@/components/case-study/SitemapBlock";
 import type { TimelineData } from "@/components/case-study/TimelineBlock";
 import type { MotionPlayerData } from "@/components/case-study/MotionPlayerBlock";
 import type { MotionSpecData } from "@/components/case-study/MotionSpecBlock";
+import type { MotionSetData } from "@/components/case-study/MotionSetBlock";
 
 // ============================================================================
 // SKEMA SATU-UNTUK-SEMUA CASE STUDY
@@ -75,6 +76,7 @@ export type ShowcaseBlock =
   | { type: "spotlight"; data: SpotlightData; heading?: Heading }     // satu layar + catatan keputusan bernomor
   | { type: "prototype"; data: PrototypeData; heading?: Heading }     // prototipe Figma interaktif
   | { type: "motionPlayer"; data: MotionPlayerData; heading?: Heading } // pemutar Lottie dengan kontrol & state
+  | { type: "motionSet"; data: MotionSetData; heading?: Heading }       // sekumpulan animasi mandiri (spesifikasi dibaca otomatis)
   | { type: "motionSpec"; data: MotionSpecData; heading?: Heading }     // spec sheet animasi (durasi, fps, ukuran)
   | { type: "timeline"; data: TimelineData; heading?: Heading }       // fase proses & durasi
   | { type: "sitemap"; data: SitemapData; heading?: Heading }         // struktur situs lama vs baru
