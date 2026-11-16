@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="110" y1="90" x2="1470" y2="1110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#F4F0FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="320" y1="300" x2="1230" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF4500"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <filter id="shadow" x="150" y="160" width="1300" height="900" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#171717" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <circle cx="1350" cy="170" r="260" fill="#FF4500" fill-opacity=".08"/>
+  <circle cx="210" cy="1060" r="300" fill="#6D28D9" fill-opacity=".07"/>
+  <g filter="url(#shadow)">
+    <rect x="170" y="170" width="1260" height="860" rx="36" fill="#FAFAF9"/>
+    <path d="M170 206C170 186.118 186.118 170 206 170H1394C1413.88 170 1430 186.118 1430 206V258H170V206Z" fill="#111111"/>
+    <circle cx="215" cy="214" r="9" fill="#F87171"/>
+    <circle cx="247" cy="214" r="9" fill="#FBBF24"/>
+    <circle cx="279" cy="214" r="9" fill="#4ADE80"/>
+    <text x="330" y="221" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">ADITIO / EXPERIMENT 01</text>
+    <text x="250" y="390" fill="#111111" font-family="Arial, sans-serif" font-size="84" font-weight="700" letter-spacing="-4">BUILDING WITH AI</text>
+    <text x="254" y="445" fill="#52525B" font-family="Arial, sans-serif" font-size="27">A repeatable workflow, shaped through real projects.</text>
+    <rect x="250" y="520" width="1100" height="2" fill="#E5E7EB"/>
+    <g font-family="Arial, sans-serif">
+      <rect x="250" y="590" width="190" height="150" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+      <text x="278" y="638" fill="#FF4500" font-size="17" font-weight="700" letter-spacing="2">01 / THINK</text>
+      <text x="278" y="686" fill="#111111" font-size="27" font-weight="700">GPT</text>
+      <text x="278" y="716" fill="#71717A" font-size="17">Mentor</text>
+      <path d="M452 665H500" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M488 652L502 665L488 678" stroke="#6D28D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="520" y="590" width="190" height="150" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+      <text x="548" y="638" fill="#FF4500" font-size="17" font-weight="700" letter-spacing="2">02 / PLAN</text>
+      <text x="548" y="686" fill="#111111" font-size="27" font-weight="700">Qwen</text>
+      <text x="548" y="716" fill="#71717A" font-size="17">Project manager</text>
+      <path d="M722 665H770" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M758 652L772 665L758 678" stroke="#6D28D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="790" y="590" width="190" height="150" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+      <text x="818" y="638" fill="#FF4500" font-size="17" font-weight="700" letter-spacing="2">03 / EXPLORE</text>
+      <text x="818" y="686" fill="#111111" font-size="27" font-weight="700">Stitch</text>
+      <text x="818" y="716" fill="#71717A" font-size="17">Visual reference</text>
+      <path d="M992 665H1040" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+      <path d="M1028 652L1042 665L1028 678" stroke="#6D28D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="1060" y="590" width="190" height="150" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+      <text x="1088" y="638" fill="#FF4500" font-size="17" font-weight="700" letter-spacing="2">04 / BUILD</text>
+      <text x="1088" y="686" fill="#111111" font-size="27" font-weight="700">Claude</text>
+      <text x="1088" y="716" fill="#71717A" font-size="17">Coding mentor</text>
+    </g>
+    <rect x="250" y="810" width="1100" height="125" rx="22" fill="#111111"/>
+    <text x="292" y="861" fill="#FCA58A" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3">THE HUMAN IN THE LOOP</text>
+    <text x="292" y="904" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">I evaluate, decide, refine, and own the final result.</text>
+  </g>
+</svg>

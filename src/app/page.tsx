@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import OrbiRive from "@/components/OrbiRive";
 import SelectedWorks from "@/components/SelectedWorks";
 import ProcessSection from "@/components/ProcessSection";
+import AIWorkflowFeature from "@/components/AIWorkflowFeature";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -111,6 +112,7 @@ export default function Home() {
       </section>
       
       <SelectedWorks />
+      <AIWorkflowFeature />
       <ProcessSection />
       <Footer />
     
