@@ -57,12 +57,12 @@ export default function AboutPage() {
                 >
                   EMAIL ME
                 </a>
-                <Link
+                <a 
                   href="/cv"
                   className="px-4 py-2 border border-foreground text-foreground font-mono text-xs rounded-full hover:bg-foreground hover:text-background transition-colors"
                 >
                   VIEW CV
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -80,6 +80,7 @@ export default function AboutPage() {
                 <div className="p-4 bg-background border border-border rounded-xl">
                 <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Date of Birth</span>
                 <p className="font-bold text-foreground">[21 November], 1999</p>
+                <p className="font-mono text-xs text-muted mt-1">27 years old</p>
                 </div>
 
                 {/* Info Item 3 */}
@@ -149,15 +150,15 @@ export default function AboutPage() {
             </p>
             
             <p className="text-lg text-muted leading-relaxed mb-6">
-              As I transitioned to After Effects, I found myself diving into Expressions, which naturally led me to explore HTML and CSS. When Figma emerged during my college years, it all clicked: I wasn&apos;t just a designer or a coder; I was a builder who understood both languages.
+              As I transitioned to After Effects, I found myself diving into Expressions, which naturally led me to explore HTML and CSS. When Figma emerged during my college years, it all clicked: I wasn't just a designer or a coder; I was a builder who understood both languages.
             </p>
             
             <p className="text-lg text-muted leading-relaxed mb-8">
-              From internships to freelance projects, and now to building full-scale digital ecosystems, my path has been about bridging the gap between &apos;how it looks&apos; and &apos;how it works.&apos;
+              From internships to freelance projects, and now to building full-scale digital ecosystems, my path has been about bridging the gap between 'how it looks' and 'how it works.'
             </p>
 
             {/* Key Principles */}
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
                 ⚡ TIMING FIDELITY: 60 FPS
               </span>
@@ -167,16 +168,6 @@ export default function AboutPage() {
               <span className="px-4 py-2 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
                 💻 FRONTEND SYNC: CODE-FIRST
               </span>
-            </div>
-                        {/* === TAMBAHKAN BAGIAN INI DI SINI === */}
-            <div className="pt-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="font-mono text-sm font-bold text-accent-purple">MODERN WORKFLOW // AI SYNERGY</span>
-                <div className="h-px grow bg-border"></div>
-              </div>
-              <p className="text-base text-muted leading-relaxed">
-                AI is my tactical accelerator, not my autopilot. I leverage it to rapidly generate script variations, style references, and baseline copy. However, my years of design and animation experience act as the ultimate filter: I critically reject irrelevant outputs, curate the rest, and ensure every detail aligns with strict UX standards and brand identity.
-              </p>
             </div>
           </div>
 
@@ -404,21 +395,21 @@ export default function AboutPage() {
                 Building scalable products with kinetic motion.
               </h3>
               <p className="text-muted leading-relaxed mb-8">
-                I&apos;m currently open to select freelance projects and lead product design roles. Let&apos;s discuss how my hybrid skill set can bring tangible value to your team.
+                I'm currently open to select freelance projects and lead product design roles. Let's discuss how my hybrid skill set can bring tangible value to your team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="mailto:aditiodwin@gmail.com"
+                <a 
+                  href="mailto:aditiodwin@gmail.com" 
                   className="inline-flex items-center justify-center px-6 py-3 bg-accent-orange text-white font-mono text-sm rounded-full hover:bg-foreground transition-colors duration-300"
                 >
                   GET IN TOUCH ↗
                 </a>
-                <Link
-                  href="/cv"
+                <a 
+                  href="/cv" 
                   className="inline-flex items-center justify-center px-6 py-3 border border-foreground text-foreground font-mono text-sm rounded-full hover:bg-foreground hover:text-background transition-colors duration-300"
                 >
-                  VIEW CV ↓
-                </Link>
+                  VIEW CV
+                </a>
               </div>
             </div>
 

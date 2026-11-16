@@ -3,367 +3,388 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// === KAMUS BAHASA (ID & EN) ===
-const content = {
+// ============================================================================
+// CV: sumber isi tunggal (ID & EN). Edit teks di kamus ini saja.
+// Nomor telepon TIDAK ada di kode. Ia hanya tampil jika variabel lingkungan
+// NEXT_PUBLIC_CV_PHONE diisi (lihat CARA_PAKAI.md), sehingga halaman web publik
+// tidak memuatnya, sedangkan PDF yang kamu unduh/cetak secara lokal memuatnya.
+// ============================================================================
+const PHONE = process.env.NEXT_PUBLIC_CV_PHONE;
+
+type Entry = { title: string; org: string; period: string; points: string[]; note?: string };
+
+type Dict = {
+  role: string;
+  roleSub: string;
+  location: string;
+  backBtn: string;
+  pdfBtn: string;
+  pdfHref: string;
+  summaryTitle: string;
+  summary: string;
+  skillsTitle: string;
+  skills: { label: string; text: string }[];
+  languages: { label: string; text: string };
+  expTitle: string;
+  freelance: { title: string; org: string; period: string; clients: Entry[] };
+  zeus: Entry;
+  projectsTitle: string;
+  projects: Entry[];
+  eduTitle: string;
+  edu: { name: string; period: string }[];
+};
+
+const content: Record<"id" | "en", Dict> = {
   id: {
-    role: "Product & UI/UX Designer · Multidisciplinary",
-    summaryTitle: "Professional Summary",
-    summaryText: "Product & UI/UX Designer dengan fondasi kuat di Motion Graphics dan pemahaman teknis Front-End (Next.js, Tailwind CSS). Berpengalaman menerjemahkan narasi brand yang kompleks menjadi produk digital yang terstruktur, user-centered, dan siap produksi. Terbiasa dipercaya klien untuk memperluas cakupan proyek dari aset motion menjadi desain antarmuka penuh (UI/UX) karena kemampuan membangun Design System yang kohesif. Kini mencari peran in-house untuk berfokus pada siklus hidup produk jangka panjang, iterasi berbasis data, dan kolaborasi lintas fungsi yang terstruktur.",
-    compTitle: "Core Competencies",
-    comp1Title: "Product & UX:",
-    comp1Text: "User Research, User Flow, Wireframing, Prototyping, Usability Testing, Information Architecture",
-    comp2Title: "UI & Visual:",
-    comp2Text: "Design Systems, Responsive Design, Typography, Color Theory, Figma (Advanced)",
-    comp3Title: "Technical:",
-    comp3Text: "Next.js, Tailwind CSS, HTML/CSS, Web3Forms, Lottie/JSON Optimization",
-    comp4Title: "Workflow:",
-    comp4Text: "Cross-functional Collaboration, Stakeholder Management, Agile, SOP Documentation",
-    expTitle: "Professional Experience",
-    eduTitle: "Education",
-    featuredTitle: "Featured Work",
-    saveBtn: "Simpan sebagai PDF",
+    role: "Product & Motion Designer",
+    roleSub: "UI/UX · Animasi Lottie · Video Explainer",
+    location: "Malang, Indonesia · Terbuka untuk relokasi ke Jakarta",
     backBtn: "← Kembali ke Portofolio",
-    jobs: {
-      gjls: {
-        title: "Product Designer (Freelance/Contract)",
-        company: "GJLS Entertainment · National Comedy & Entertainment Brand",
+    pdfBtn: "Unduh PDF",
+    pdfHref: "/cv-aditio-dwi-novanto-id.pdf",
+    summaryTitle: "Ringkasan",
+    summary:
+      "Product & Motion Designer lulusan D4 Desain Komunikasi Visual. Sejak 2021 bekerja freelance langsung dengan klien internasional (termasuk di Jerman): animasi Lottie, video, ilustrasi, dan UI landing page, hingga front-end Next.js. Satu klien (Stockt) memperluas kontrak saya tiga kali, dari animasi Lottie ke redesain UI dan video onboarding. Terbiasa menjadikan AI kolaborator proses (riset referensi, bedah logika UX, draf layout) dengan keputusan akhir di tangan saya. Mencari peran in-house tempat saya bisa mengerjakan produk dari ide hingga rilis.",
+    skillsTitle: "Keahlian",
+    skills: [
+      { label: "Desain Produk", text: "Figma, Design System, Prototyping, Riset Pengguna" },
+      { label: "Motion & Ilustrasi", text: "After Effects, Lottie, Rive, Illustrator, Premiere Pro" },
+      { label: "Front-End", text: "Next.js, Tailwind CSS, HTML/CSS" },
+      { label: "Alur Kerja AI", text: "ChatGPT, Gemini, Qwen, Claude, Google Stitch: riset referensi, bedah logika UX, draf layout" },
+    ],
+    languages: { label: "Bahasa", text: "Indonesia (native) · Inggris (membaca, menulis, mendengarkan: baik · berbicara: berkembang)" },
+    expTitle: "Pengalaman",
+    freelance: {
+      title: "Freelance Product & Motion Designer",
+      org: "Mandiri via Upwork · bekerja langsung dengan klien, tanpa agensi",
+      period: "Akhir 2021 – Sekarang",
+      clients: [
+        {
+          title: "Bootsschule1",
+          org: "Sekolah mengemudi kapal, Jerman · Motion Designer & Illustrator",
+          period: "2026",
+          points: [
+            "Menganimasikan 7 header popup Lottie untuk aplikasi web belajar SIM kapal rekreasi, berdasarkan storyboard klien.",
+            "Mengingatkan klien akan risiko berat file pada karakter penuh outline sebelum produksi; klien setuju mendesain ulang maskot agar ramah Lottie, dibangun ulang di Illustrator.",
+            "Mengirim 7 file Lottie 43–332 KB (total 801 KB), 60 fps, latar transparan.",
+          ],
+        },
+        {
+          title: "VRIQ",
+          org: "Pengembang aplikasi · Illustrator & Motion Designer",
+          period: "Okt 2026",
+          points: [
+            "Menggambar vektor dan menganimasikan van pengantar sebagai animasi loading screen Lottie dalam dua state (123 KB dan 122 KB), sesuai brief dan referensi klien.",
+          ],
+        },
+        {
+          title: "Stockt",
+          org: "Startup SaaS manajemen inventori · Lottie Animator → UI Designer → Video Designer",
+          period: "Akhir 2021 – Pertengahan 2022",
+          points: [
+            "Dipilih lewat Upwork untuk animasi Lottie; klien lalu menawarkan redesain UI dan video onboarding: tiga kontrak berturut-turut.",
+            "Mendesain UI landing page desktop dan mobile di Figma, dan membuat video onboarding (storyboard, ilustrasi, animasi, penyuntingan; naskah dan suara dibuat dengan AI).",
+          ],
+          note: "Dikerjakan sambil magang. Stockt telah berhenti beroperasi.",
+        },
+      ],
+    },
+    zeus: {
+      title: "Junior Motion Designer & Lead Intern Mentor",
+      org: "ZEUS ANIMATION · Studio Video Explainer",
+      period: "2021 – 2022",
+      points: [
+        "Dipromosikan menjadi Lead Mentor untuk membimbing ~50 siswa SMK/mahasiswa dalam pipeline animasi 2D.",
+        "Menyusun SOP komprehensif untuk pembuatan aset dan rigging, yang diadopsi studio untuk standarisasi workflow jangka panjang.",
+      ],
+    },
+    projectsTitle: "Proyek Mandiri",
+    projects: [
+      {
+        title: "GJLS Entertainment: Redesain Website (proyek konsep)",
+        org: "Product Designer & Frontend Developer",
+        period: "2026",
         points: [
-          "Memimpin redesign end-to-end website portofolio resmi, mengubahnya menjadi Digital Media Kit interaktif untuk mempercepat siklus pitching tim Partnership.",
-          "Merancang dan menerapkan Design System terukur (Space Grotesk + Soft Minimalist), menjaga konsistensi tone of voice brand di seluruh halaman.",
-          "Mengintegrasikan sistem lead generation yang mengubah cold audience menjadi data terukur, memangkas waktu trust-building awal hingga 30-40%.",
-          "Membangun front-end menggunakan Next.js dan Tailwind CSS, memastikan website 100% production-ready dan mudah dikelola tim non-teknis."
-        ]
-      },
-      msgbox: {
-        title: "UI/UX Designer (Pilot Project)",
-        company: "MsgBox · Enterprise AI Communication Platform (Singapore Client)",
-        points: [
-          "Memperluas cakupan proyek dari pembuatan animasi Pitch Deck dan Lottie menjadi desain UI/UX penuh untuk Landing Page dan Dashboard SaaS.",
-          "Merancang User Flow dan high-fidelity wireframe untuk fitur dashboard kompleks, termasuk alur automation workflow dan integrasi multi-channel (WhatsApp, WeChat, LINE).",
-          "Mengembangkan Design System terpusat untuk menjembatani bahasa visual animasi dinamis ke dalam komponen antarmuka statis."
+          "Proyek konsep mandiri; proposal resmi sudah dikirim ke GJLS dan menunggu respons. Premisnya: mengubah persepsi nama yang dibaca “Gak Jelas” menjadi perusahaan yang bisa dipercaya brand, sebagai bahan pendukung tim AE saat approach brand.",
+          "Mengaudit situs lama (4 temuan), merancang halaman Partnership & Media Kit, dan menyederhanakan navigasi.",
+          "Membangun design system di Figma dan front-end Next.js/Tailwind; live di Vercel dalam 4 minggu.",
         ],
-        note: "*Catatan: Proyek dihentikan di fase akhir pengembangan dashboard karena restrukturisasi prioritas strategis internal klien; seluruh aset landing page berhasil di-handover dengan dokumentasi lengkap."
       },
-      bootsschule: {
-        title: "Motion Graphic Designer",
-        company: "Bootsschule 1.de · EdTech Platform",
+      {
+        title: "Situs portofolio ini",
+        org: "Next.js · Tailwind CSS",
+        period: "2026",
         points: [
-          "Menerjemahkan UX behavioral briefs menjadi spesifikasi motion yang presisi untuk setiap langkah user journey.",
-          "Merancang dan menganimasikan 7 micro-interactions berbasis Lottie yang dipicu oleh perilaku pengguna spesifik.",
-          "Mengoptimalkan output JSON secara agresif (43KB–333KB) untuk performa mobile yang mulus."
-        ]
+          "Membangun situs dengan template studi kasus berbasis data (satu file per proyek); deploy pertama dalam 3 hari dengan alur kerja dibantu AI, lalu dirapikan.",
+        ],
       },
-      stockt: {
-        title: "UI & Motion Designer",
-        company: "Stockt · E-commerce Inventory SaaS Startup",
-        points: [
-          "Menciptakan hierarki visual yang selaras dengan identitas brand, menghasilkan desain high-fidelity yang berhasil di-deploy dan live."
-        ]
-      },
-      zeus: {
-        title: "Junior Motion Designer & Lead Intern Mentor",
-        company: "ZEUS ANIMATION · Explainer Video Studio",
-        points: [
-          "Dipromosikan menjadi Lead Mentor untuk membimbing ~50 siswa SMK/mahasiswa dalam pipeline animasi 2D.",
-          "Menyusun SOP komprehensif untuk pembuatan aset dan rigging, yang diadopsi studio untuk standarisasi workflow jangka panjang."
-        ]
-      }
-    },
-    edu: {
-      d4: "D4 in Visual Communication Design (DKV) · Universitas Brawijaya, Malang, Indonesia",
-      smk: "Vocational High School (SMK) in Animation · SMKN 5 Malang, Indonesia"
-    },
-    featured: {
-      web: "🚀 Live Production Website: ",
-      webDesc: "Portofolio interaktif ini, dibangun 100% dengan Next.js & Tailwind CSS.",
-      lottie: "📦 Scalable Lottie UI Systems: ",
-      lottieDesc: "Koleksi aset animasi Lottie & ikon UI yang konsisten, dirancang dengan pedoman motion yang ketat dan dioptimalkan untuk implementasi web/mobile skala global."
-    }
+    ],
+    eduTitle: "Pendidikan",
+    edu: [
+      { name: "D4 Desain Komunikasi Visual · Universitas Brawijaya, Malang", period: "2018 – 2022" },
+      { name: "SMKN 5 Malang · Animasi", period: "2015 – 2018" },
+    ],
   },
   en: {
-    role: "Product & UI/UX Designer · Multidisciplinary",
-    summaryTitle: "Professional Summary",
-    summaryText: "Product & UI/UX Designer with a strong foundation in Motion Graphics and Front-End technical understanding (Next.js, Tailwind CSS). Experienced in translating complex brand narratives into structured, user-centered, and production-ready digital products. Trusted by clients to expand project scope from motion assets to full UI/UX interface design due to the ability to build cohesive Design Systems. Currently seeking an in-house role to focus on long-term product lifecycles, data-driven iteration, and structured cross-functional collaboration.",
-    compTitle: "Core Competencies",
-    comp1Title: "Product & UX:",
-    comp1Text: "User Research, User Flow, Wireframing, Prototyping, Usability Testing, Information Architecture",
-    comp2Title: "UI & Visual:",
-    comp2Text: "Design Systems, Responsive Design, Typography, Color Theory, Figma (Advanced)",
-    comp3Title: "Technical:",
-    comp3Text: "Next.js, Tailwind CSS, HTML/CSS, Web3Forms, Lottie/JSON Optimization",
-    comp4Title: "Workflow:",
-    comp4Text: "Cross-functional Collaboration, Stakeholder Management, Agile, SOP Documentation",
-    expTitle: "Professional Experience",
-    eduTitle: "Education",
-    featuredTitle: "Featured Work",
-    saveBtn: "Save as PDF",
+    role: "Product & Motion Designer",
+    roleSub: "UI/UX · Lottie Animation · Explainer Video",
+    location: "Malang, Indonesia · Open to relocating to Jakarta",
     backBtn: "← Back to Portfolio",
-    jobs: {
-      gjls: {
-        title: "Product Designer (Freelance/Contract)",
-        company: "GJLS Entertainment · National Comedy & Entertainment Brand",
+    pdfBtn: "Download PDF",
+    pdfHref: "/cv-aditio-dwi-novanto-en.pdf",
+    summaryTitle: "Summary",
+    summary:
+      "Product & Motion Designer with a D4 degree in Visual Communication Design. Freelancing directly with international clients since 2021 (including in Germany): Lottie animation, video, illustration and landing-page UI, through to Next.js front-end. One client (Stockt) extended my contract three times, from Lottie animation to a UI redesign and an onboarding video. Used to treating AI as a process collaborator (reference research, stress-testing UX logic, layout drafts) while keeping the final decisions. Looking for an in-house role where I can work on a product from idea to release.",
+    skillsTitle: "Skills",
+    skills: [
+      { label: "Product Design", text: "Figma, Design Systems, Prototyping, User Research" },
+      { label: "Motion & Illustration", text: "After Effects, Lottie, Rive, Illustrator, Premiere Pro" },
+      { label: "Front-End", text: "Next.js, Tailwind CSS, HTML/CSS" },
+      { label: "AI Workflow", text: "ChatGPT, Gemini, Qwen, Claude, Google Stitch: reference research, UX logic review, layout drafts" },
+    ],
+    languages: { label: "Languages", text: "Indonesian (native) · English (reading, writing, listening: good · speaking: developing)" },
+    expTitle: "Experience",
+    freelance: {
+      title: "Freelance Product & Motion Designer",
+      org: "Self-employed via Upwork · working directly with clients, no agency",
+      period: "Late 2021 – Present",
+      clients: [
+        {
+          title: "Bootsschule1",
+          org: "Boat driving school, Germany · Motion Designer & Illustrator",
+          period: "2026",
+          points: [
+            "Animated 7 Lottie popup headers for a web app that helps people study for the recreational boating license, working from the client's storyboards.",
+            "Warned the client about file weight from an outline-heavy character before production; they agreed to redesign the mascot to be Lottie-friendly, rebuilt in Illustrator.",
+            "Delivered 7 Lottie files of 43–332 KB (801 KB total), 60 fps, transparent background.",
+          ],
+        },
+        {
+          title: "VRIQ",
+          org: "App developer · Illustrator & Motion Designer",
+          period: "Oct 2026",
+          points: [
+            "Drew the vector artwork and animated a delivery van as a two-state Lottie loading-screen animation (123 KB and 122 KB), following the client's brief and references.",
+          ],
+        },
+        {
+          title: "Stockt",
+          org: "Inventory-management SaaS startup · Lottie Animator → UI Designer → Video Designer",
+          period: "Late 2021 – Mid 2022",
+          points: [
+            "Hired through Upwork for Lottie animation; the client then offered a UI redesign and an onboarding video: three consecutive contracts.",
+            "Designed the desktop and mobile landing-page UI in Figma, and made the onboarding video (storyboard, illustration, animation, editing; script and voice-over generated with AI).",
+          ],
+          note: "Done while interning. Stockt has since stopped operating.",
+        },
+      ],
+    },
+    zeus: {
+      title: "Junior Motion Designer & Lead Intern Mentor",
+      org: "ZEUS ANIMATION · Explainer Video Studio",
+      period: "2021 – 2022",
+      points: [
+        "Promoted to Lead Mentor to guide ~50 vocational/high school students in the 2D animation pipeline.",
+        "Compiled comprehensive SOPs for asset creation and rigging, adopted by the studio for long-term workflow standardization.",
+      ],
+    },
+    projectsTitle: "Self-Initiated Projects",
+    projects: [
+      {
+        title: "GJLS Entertainment: Website Redesign (concept project)",
+        org: "Product Designer & Frontend Developer",
+        period: "2026",
         points: [
-          "Led end-to-end redesign of the official portfolio website, transforming it into an interactive Digital Media Kit to accelerate the Partnership team's pitching cycle.",
-          "Designed and implemented a measurable Design System (Space Grotesk + Soft Minimalist), maintaining brand tone of voice consistency across all pages.",
-          "Integrated a lead generation system that converted cold audiences into measurable data, reducing initial trust-building time by 30-40%.",
-          "Built the front-end using Next.js and Tailwind CSS, ensuring the website is 100% production-ready, responsive, and easily managed by non-technical teams."
-        ]
-      },
-      msgbox: {
-        title: "UI/UX Designer (Pilot Project)",
-        company: "MsgBox · Enterprise AI Communication Platform (Singapore Client)",
-        points: [
-          "Expanded project scope from creating Pitch Deck and Lottie animations to full UI/UX design for SaaS Landing Pages and Dashboards.",
-          "Designed User Flows and high-fidelity wireframes for complex dashboard features, including automation workflows and multi-channel integration (WhatsApp, WeChat, LINE).",
-          "Developed a centralized Design System to bridge dynamic motion visual language into static interface components."
+          "Self-initiated concept project; a formal proposal has been sent to GJLS and is awaiting a response. The premise: change how a name read as “Gak Jelas” (“unclear”) is perceived into a company brands can trust, as supporting material for the account team when approaching brands.",
+          "Audited the old site (4 findings), designed a Partnership & Media Kit page, and simplified the navigation.",
+          "Built the design system in Figma and the Next.js/Tailwind front-end; live on Vercel in 4 weeks.",
         ],
-        note: "*Note: Project was halted in the final dashboard development phase due to internal client strategic priority restructuring; all landing page assets were successfully handed over with complete documentation."
       },
-      bootsschule: {
-        title: "Motion Graphic Designer",
-        company: "Bootsschule 1.de · EdTech Platform",
+      {
+        title: "This portfolio site",
+        org: "Next.js · Tailwind CSS",
+        period: "2026",
         points: [
-          "Translated UX behavioral briefs into precise motion specifications for every step of the user journey.",
-          "Designed and animated 7 Lottie-based micro-interactions triggered by specific user behaviors.",
-          "Aggressively optimized JSON outputs (43KB–333KB) to ensure smooth mobile performance."
-        ]
+          "Built with a data-driven case-study template (one file per project); first deploy in 3 days with an AI-assisted workflow, then refined.",
+        ],
       },
-      stockt: {
-        title: "UI & Motion Designer",
-        company: "Stockt · E-commerce Inventory SaaS Startup",
-        points: [
-          "Created visual hierarchy aligned with brand identity, resulting in high-fidelity designs that were successfully deployed and went live."
-        ]
-      },
-      zeus: {
-        title: "Junior Motion Designer & Lead Intern Mentor",
-        company: "ZEUS ANIMATION · Explainer Video Studio",
-        points: [
-          "Promoted to Lead Mentor to guide ~50 vocational/high school students in the 2D animation pipeline.",
-          "Compiled comprehensive SOPs for asset creation and rigging, adopted by the studio for long-term workflow standardization."
-        ]
-      }
-    },
-    edu: {
-      d4: "D4 in Visual Communication Design (DKV) · Universitas Brawijaya, Malang, Indonesia",
-      smk: "Vocational High School (SMK) in Animation · SMKN 5 Malang, Indonesia"
-    },
-    featured: {
-      web: "🚀 Live Production Website: ",
-      webDesc: "This interactive portfolio, built 100% with Next.js & Tailwind CSS.",
-      lottie: "📦 Scalable Lottie UI Systems: ",
-      lottieDesc: "A consistent collection of Lottie animations & UI icons, designed with strict motion guidelines and optimized for global web/mobile implementation."
-    }
-  }
+    ],
+    eduTitle: "Education",
+    edu: [
+      { name: "D4 Visual Communication Design · Universitas Brawijaya, Malang", period: "2018 – 2022" },
+      { name: "SMKN 5 Malang · Animation", period: "2015 – 2018" },
+    ],
+  },
 };
+
+function EntryBlock({ e }: { e: Entry }) {
+  return (
+    <div className="break-inside-avoid">
+      <div className="mb-0.5 flex flex-col md:flex-row md:items-baseline md:justify-between print:flex-row print:items-baseline print:justify-between">
+        <h3 className="text-[15px] font-semibold text-foreground print:text-[13.5px]">{e.title}</h3>
+        <span className="font-mono text-xs text-[#888888]">{e.period}</span>
+      </div>
+      <p className="mb-1.5 text-sm text-[#555555] print:mb-1 print:text-[12px]">{e.org}</p>
+      <ul className="ml-4 list-outside list-disc space-y-1 text-[14px] leading-relaxed text-[#444444] print:space-y-0.5 print:text-[12px] print:leading-snug">
+        {e.points.map((p, i) => (
+          <li key={i}>{p}</li>
+        ))}
+      </ul>
+      {e.note && <p className="mt-1.5 text-xs italic text-[#888888] print:mt-1 print:text-[11px]">{e.note}</p>}
+    </div>
+  );
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="mb-3 break-after-avoid text-xs font-bold print:mb-2 print:text-[10.5px] uppercase tracking-widest text-[#888888]">{children}</h2>;
+}
+
+const linkClass =
+  "text-foreground underline decoration-[#D1D5DB] underline-offset-2 hover:decoration-foreground";
 
 export default function CVPage() {
   const [lang, setLang] = useState<"id" | "en">("id");
   const t = content[lang];
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
-    <main className="min-h-screen bg-[#FAFAFA] text-foreground font-sans antialiased selection:bg-foreground selection:text-white">
-      
+    <main className="min-h-screen bg-[#FAFAFA] font-sans text-foreground antialiased selection:bg-foreground selection:text-white">
       {/* Sticky Action Bar */}
-      <div className="sticky top-0 z-50 bg-[#FAFAFA]/90 backdrop-blur-md border-b border-[#E5E5E5] py-4 px-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
-        <Link href="/" className="whitespace-nowrap text-sm font-medium text-[#666666] hover:text-foreground transition-colors flex items-center gap-2">
+      <div className="sticky top-0 z-50 flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E5E5] bg-[#FAFAFA]/90 px-6 py-4 backdrop-blur-md print:hidden">
+        <Link href="/" className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-[#666666] transition-colors hover:text-foreground">
           {t.backBtn}
         </Link>
-        
+
         <div className="ml-auto flex shrink-0 items-center gap-3">
-          {/* Language Toggle */}
-          <div className="flex bg-[#E5E5E5] rounded-md p-1">
-            <button 
-              type="button"
-              onClick={() => setLang("id")}
-              aria-pressed={lang === "id"}
-              className={`px-3 py-1.5 text-xs font-bold rounded transition-all ${lang === "id" ? "bg-white text-foreground shadow-sm" : "text-[#666666] hover:text-foreground"}`}
-            >
-              ID
-            </button>
-            <button 
-              type="button"
-              onClick={() => setLang("en")}
-              aria-pressed={lang === "en"}
-              className={`px-3 py-1.5 text-xs font-bold rounded transition-all ${lang === "en" ? "bg-white text-foreground shadow-sm" : "text-[#666666] hover:text-foreground"}`}
-            >
-              EN
-            </button>
+          <div className="flex rounded-md bg-[#E5E5E5] p-1">
+            {(["id", "en"] as const).map((l) => (
+              <button
+                key={l}
+                type="button"
+                onClick={() => setLang(l)}
+                aria-pressed={lang === l}
+                className={`rounded px-3 py-1.5 text-xs font-bold uppercase transition-all ${
+                  lang === l ? "bg-white text-foreground shadow-sm" : "text-[#666666] hover:text-foreground"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
           </div>
 
-          <button 
-            type="button"
-            onClick={handlePrint}
-            className="px-4 py-2 bg-foreground text-white text-sm font-medium rounded-md hover:bg-[#333333] transition-colors flex items-center gap-2"
+          {process.env.NODE_ENV !== "production" && (
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="rounded-md border border-[#D1D5DB] px-3 py-2 text-sm font-medium text-[#555555] transition-colors hover:bg-white"
+            >
+              Cetak (dev)
+            </button>
+          )}
+
+          <a
+            href={t.pdfHref}
+            download
+            rel="nofollow"
+            className="flex items-center gap-2 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#333333]"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-            {t.saveBtn}
-          </button>
+            {t.pdfBtn}
+          </a>
         </div>
       </div>
 
-      {/* Document Container */}
-      <div className="py-12 px-4 md:px-8 flex justify-center print:p-0 print:m-0 print:py-0">
-        <div className="w-full max-w-[210mm] bg-white shadow-sm print:shadow-none p-10 md:p-16 print:p-8">
-          
+      {/* Document */}
+      <div className="flex justify-center px-4 py-12 md:px-8 print:m-0 print:p-0 print:py-0">
+        <div className="w-full max-w-[210mm] bg-white p-10 shadow-sm md:p-16 print:px-10 print:py-2 print:shadow-none">
           {/* HEADER */}
-          <header className="mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">Aditio Dwi Novanto</h1>
-            <p className="text-base md:text-lg text-[#666666] mb-5">{t.role}</p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#555555]">
-              <span>📍 Malang, Indonesia (Remote)</span>
-              <span className="hidden md:inline text-[#D1D5DB]">•</span>
-              <span>📧 aditiodwin@gmail.com</span>
-              <span className="hidden md:inline text-[#D1D5DB]">•</span>
-              <span>📱 +62 852-3593-6381</span>
-              <span className="hidden md:inline text-[#D1D5DB]">•</span>
-              <a href="https://linkedin.com/in/aditiodwin" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-[#D1D5DB] underline-offset-2 hover:decoration-foreground">LinkedIn</a>
-              <span className="hidden md:inline text-[#D1D5DB]">•</span>
-              <a href="https://iconscout.com/contributors/wizzard" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-[#D1D5DB] underline-offset-2 hover:decoration-foreground">Iconscout</a>
+          <header className="mb-8 print:mb-5">
+            <h1 className="mb-1 text-3xl font-bold tracking-tight md:text-4xl">Aditio Dwi Novanto</h1>
+            <p className="text-base font-medium text-foreground md:text-lg">{t.role}</p>
+            <p className="mb-4 text-sm text-[#666666] print:mb-2.5 print:text-[12px]">{t.roleSub}</p>
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-sm text-[#555555] print:gap-y-0.5 print:text-[11.5px]">
+              <span>{t.location}</span>
+              <span className="text-[#D1D5DB]">•</span>
+              <a href="mailto:aditiodwin@gmail.com" className={linkClass}>aditiodwin@gmail.com</a>
+              {PHONE && (
+                <>
+                  <span className="text-[#D1D5DB]">•</span>
+                  <span>{PHONE}</span>
+                </>
+              )}
+            </div>
+            <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1.5 text-sm text-[#555555] print:mt-0.5 print:gap-y-0.5 print:text-[11.5px]">
+              <a href="https://aditio-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" className={linkClass}>aditio-portfolio.vercel.app</a>
+              <span className="text-[#D1D5DB]">•</span>
+              <a href="https://www.linkedin.com/in/aditio-dwi-novanto-1660901b8/" target="_blank" rel="noopener noreferrer" className={linkClass}>linkedin.com/in/aditio-dwi-novanto-1660901b8</a>
+            </div>
+            <div className="mt-1.5 text-sm text-[#555555] print:mt-0.5 print:text-[11.5px]">
+              <a href="https://www.upwork.com/freelancers/~017c511ecf47e233b3" target="_blank" rel="noopener noreferrer" className={linkClass}>upwork.com/freelancers/~017c511ecf47e233b3</a>
             </div>
           </header>
 
           {/* SUMMARY */}
-          <section className="mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#888888] mb-3">{t.summaryTitle}</h2>
-            <p className="text-[15px] text-[#333333] leading-relaxed">
-              {t.summaryText}
-            </p>
-          </section>
-
-          {/* CORE COMPETENCIES */}
-          <section className="mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#888888] mb-3">{t.compTitle}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 text-sm">
-              <div className="flex">
-                <span className="font-semibold w-28 shrink-0 text-foreground">{t.comp1Title}</span>
-                <span className="text-[#444444]">{t.comp1Text}</span>
-              </div>
-              <div className="flex">
-                <span className="font-semibold w-28 shrink-0 text-foreground">{t.comp2Title}</span>
-                <span className="text-[#444444]">{t.comp2Text}</span>
-              </div>
-              <div className="flex">
-                <span className="font-semibold w-28 shrink-0 text-foreground">{t.comp3Title}</span>
-                <span className="text-[#444444]">{t.comp3Text}</span>
-              </div>
-              <div className="flex">
-                <span className="font-semibold w-28 shrink-0 text-foreground">{t.comp4Title}</span>
-                <span className="text-[#444444]">{t.comp4Text}</span>
-              </div>
-            </div>
+          <section className="mb-7 print:mb-4">
+            <SectionTitle>{t.summaryTitle}</SectionTitle>
+            <p className="text-[15px] leading-relaxed text-[#333333] print:text-[12.5px] print:leading-snug">{t.summary}</p>
           </section>
 
           {/* EXPERIENCE */}
-          <section className="mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#888888] mb-4">{t.expTitle}</h2>
-            
-            <div className="space-y-6">
-              {/* GJLS */}
+          <section className="mb-7 print:mb-4">
+            <SectionTitle>{t.expTitle}</SectionTitle>
+            <div className="space-y-6 print:space-y-3.5">
               <div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                  <h3 className="font-semibold text-[15px] text-foreground">{t.jobs.gjls.title}</h3>
-                  <span className="text-xs text-[#888888] font-mono">2026 – Present</span>
+                <div className="mb-0.5 flex flex-col md:flex-row md:items-baseline md:justify-between print:flex-row print:items-baseline print:justify-between">
+                  <h3 className="text-[15px] font-semibold text-foreground print:text-[13.5px]">{t.freelance.title}</h3>
+                  <span className="font-mono text-xs text-[#888888]">{t.freelance.period}</span>
                 </div>
-                <p className="text-sm text-[#555555] mb-2">{t.jobs.gjls.company}</p>
-                <ul className="list-disc list-outside ml-4 text-[14px] text-[#444444] space-y-1.5 leading-relaxed">
-                  {t.jobs.gjls.points.map((point, i) => <li key={i}>{point}</li>)}
-                </ul>
+                <p className="text-sm text-[#555555] print:text-[12px]">{t.freelance.org}</p>
+                <div className="mt-4 space-y-5 border-l-2 border-[#E5E5E5] pl-4 print:mt-2.5 print:space-y-3">
+                  {t.freelance.clients.map((c) => (
+                    <EntryBlock key={c.title} e={c} />
+                  ))}
+                </div>
               </div>
+              <EntryBlock e={t.zeus} />
+            </div>
+          </section>
 
-              {/* MsgBox */}
-              <div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                  <h3 className="font-semibold text-[15px] text-foreground">{t.jobs.msgbox.title}</h3>
-                  <span className="text-xs text-[#888888] font-mono">Early 2025</span>
-                </div>
-                <p className="text-sm text-[#555555] mb-2">{t.jobs.msgbox.company}</p>
-                <ul className="list-disc list-outside ml-4 text-[14px] text-[#444444] space-y-1.5 leading-relaxed">
-                  {t.jobs.msgbox.points.map((point, i) => <li key={i}>{point}</li>)}
-                </ul>
-                <p className="text-xs text-[#888888] italic mt-2">{t.jobs.msgbox.note}</p>
-              </div>
+          {/* SELF-INITIATED PROJECTS */}
+          <section className="mb-7 print:mb-4">
+            <SectionTitle>{t.projectsTitle}</SectionTitle>
+            <div className="space-y-5 print:space-y-3">
+              {t.projects.map((p) => (
+                <EntryBlock key={p.title} e={p} />
+              ))}
+            </div>
+          </section>
 
-              {/* Bootsschule */}
-              <div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                  <h3 className="font-semibold text-[15px] text-foreground">{t.jobs.bootsschule.title}</h3>
-                  <span className="text-xs text-[#888888] font-mono">2023 – 2024</span>
+          {/* SKILLS */}
+          <section className="mb-7 break-inside-avoid print:mb-4">
+            <SectionTitle>{t.skillsTitle}</SectionTitle>
+            <div className="space-y-2 text-sm print:space-y-1 print:text-[12px]">
+              {[...t.skills, t.languages].map((s) => (
+                <div key={s.label} className="flex">
+                  <span className="w-36 shrink-0 font-semibold text-foreground">{s.label}</span>
+                  <span className="text-[#444444]">{s.text}</span>
                 </div>
-                <p className="text-sm text-[#555555] mb-2">{t.jobs.bootsschule.company}</p>
-                <ul className="list-disc list-outside ml-4 text-[14px] text-[#444444] space-y-1.5 leading-relaxed">
-                  {t.jobs.bootsschule.points.map((point, i) => <li key={i}>{point}</li>)}
-                </ul>
-              </div>
-
-              {/* Stockt */}
-              <div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                  <h3 className="font-semibold text-[15px] text-foreground">{t.jobs.stockt.title}</h3>
-                  <span className="text-xs text-[#888888] font-mono">Early 2023</span>
-                </div>
-                <p className="text-sm text-[#555555] mb-2">{t.jobs.stockt.company}</p>
-                <ul className="list-disc list-outside ml-4 text-[14px] text-[#444444] space-y-1.5 leading-relaxed">
-                  {t.jobs.stockt.points.map((point, i) => <li key={i}>{point}</li>)}
-                </ul>
-              </div>
-
-              {/* ZEUS */}
-              <div>
-                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-1">
-                  <h3 className="font-semibold text-[15px] text-foreground">{t.jobs.zeus.title}</h3>
-                  <span className="text-xs text-[#888888] font-mono">2021 – 2022</span>
-                </div>
-                <p className="text-sm text-[#555555] mb-2">{t.jobs.zeus.company}</p>
-                <ul className="list-disc list-outside ml-4 text-[14px] text-[#444444] space-y-1.5 leading-relaxed">
-                  {t.jobs.zeus.points.map((point, i) => <li key={i}>{point}</li>)}
-                </ul>
-              </div>
+              ))}
             </div>
           </section>
 
           {/* EDUCATION */}
-          <section className="mb-8">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#888888] mb-3">{t.eduTitle}</h2>
-            <div className="space-y-2 text-sm">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                <span className="font-semibold text-foreground">{t.edu.d4}</span>
-              </div>
-              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                <span className="font-semibold text-foreground">{t.edu.smk}</span>
-              </div>
+          <section className="break-inside-avoid">
+            <SectionTitle>{t.eduTitle}</SectionTitle>
+            <div className="space-y-1.5 text-sm print:space-y-1 print:text-[12px]">
+              {t.edu.map((e) => (
+                <div key={e.name} className="flex flex-col md:flex-row md:items-baseline md:justify-between print:flex-row print:items-baseline print:justify-between">
+                  <span className="font-semibold text-foreground">{e.name}</span>
+                  <span className="font-mono text-xs text-[#888888]">{e.period}</span>
+                </div>
+              ))}
             </div>
           </section>
-
-          {/* FEATURED WORK */}
-          <section>
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#888888] mb-3">{t.featuredTitle}</h2>
-            <div className="space-y-3">
-              <div className="text-sm">
-                <span className="font-semibold text-foreground">{t.featured.web}</span>
-                <a href="https://aditio-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-[#D1D5DB] underline-offset-2 hover:decoration-foreground">
-                  aditio-portfolio.vercel.app
-                </a>
-                <p className="text-[#555555] mt-0.5">{t.featured.webDesc}</p>
-              </div>
-              <div className="text-sm">
-                <span className="font-semibold text-foreground">{t.featured.lottie}</span>
-                <a href="https://iconscout.com/contributors/wizzard" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-[#D1D5DB] underline-offset-2 hover:decoration-foreground">
-                  iconscout.com/contributors/wizzard
-                </a>
-                <p className="text-[#555555] mt-0.5">{t.featured.lottieDesc}</p>
-              </div>
-            </div>
-          </section>
-
         </div>
       </div>
 
-      {/* CSS KHUSUS UNTUK PRINT */}
       <style jsx global>{`
         @media print {
           body {
@@ -372,23 +393,10 @@ export default function CVPage() {
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
           }
-          .print\\:hidden {
-            display: none !important;
-          }
-          .print\\:p-0 { padding: 0 !important; }
-          .print\\:m-0 { margin: 0 !important; }
-          .print\\:shadow-none { box-shadow: none !important; }
-          .print\\:py-0 { padding-top: 0 !important; padding-bottom: 0 !important; }
-          a {
-            text-decoration: none !important;
-            color: black !important;
-          }
-          h1, h2, h3, span, p, li {
-            color: black !important;
-          }
-          .text-\\[\\#666666\\], .text-\\[\\#555555\\], .text-\\[\\#444444\\], .text-\\[\\#888888\\] {
-            color: #333333 !important;
-          }
+          .print\\:hidden { display: none !important; }
+          a { text-decoration: none !important; color: black !important; }
+          h1, h2, h3, span, p, li { color: black !important; }
+          .text-\\[\\#666666\\], .text-\\[\\#555555\\], .text-\\[\\#444444\\], .text-\\[\\#888888\\] { color: #333333 !important; }
         }
       `}</style>
     </main>
