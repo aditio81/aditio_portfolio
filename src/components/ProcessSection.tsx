@@ -8,7 +8,7 @@ export default function ProcessSection() {
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
           <span className="font-mono text-xs text-muted tracking-widest uppercase block mb-4">
-            02 // My Process
+            03 // My Process
           </span>
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-6">
             Design Thinking & Execution
