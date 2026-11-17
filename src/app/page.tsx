@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import OrbiRive from "@/components/OrbiRive";
 import SelectedWorks from "@/components/SelectedWorks";
 import ProcessSection from "@/components/ProcessSection";
+import AIWorkflowFeature from "@/components/AIWorkflowFeature";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
           <div className="mb-8">
             <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-muted bg-surface/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-orange animate-pulse"></span>
-              Status: Open to in-house roles // Product & Motion Design
+              Available for select freelance and lead roles
             </span>
           </div>
 
@@ -47,13 +47,13 @@ export default function Home() {
               Aditio Dwi Novanto
             </h2>
             <span className="inline-flex items-center px-3 py-1 bg-accent-orange text-white font-mono text-xs rounded-full w-fit">
-              UI/UX · LOTTIE · VIDEO EXPLAINER
+              LEAD UI/UX & FRONTEND
             </span>
           </div>
 
           {/* Body Text */}
           <p className="text-xl md:text-2xl text-muted max-w-3xl leading-relaxed mb-12">
-            Product UI, Lottie animation and explainer videos for international clients, built through to a deployed Next.js site. I treat AI as a collaborator and keep the final call.
+            Bridging complex UI systems, emotive micro-interactions, and high-performance front-end code into cohesive digital experiences that feel alive.
           </p>
 
           {/* CTA Buttons */}
@@ -66,7 +66,6 @@ export default function Home() {
               <span className="ml-2 group-hover:translate-x-1 transition-transform">↗</span>
             </Link>
             
-            {/* UPDATED: Link to /cv page instead of direct PDF download */}
             <Link 
               href="/cv"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground text-foreground font-mono text-sm rounded-full hover:bg-foreground hover:text-background transition-all duration-300"
@@ -78,16 +77,16 @@ export default function Home() {
           {/* Stats Row - Full Width */}
           <div className="grid grid-cols-3 gap-8 md:gap-16 py-12 border-t-2 border-border">
             <div className="space-y-2">
-              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">4+</p>
-              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Years Freelancing</p>
+              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">5+</p>
+              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Years Experience</p>
             </div>
             <div className="space-y-2">
-              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">{projects.length}</p>
-              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Case Studies</p>
+              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">100+</p>
+              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Projects Delivered</p>
             </div>
             <div className="space-y-2">
-              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">9+</p>
-              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Lottie Files Delivered</p>
+              <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">100%</p>
+              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Customer Satisfaction</p>
             </div>
           </div>
         </div>
@@ -113,6 +112,7 @@ export default function Home() {
       </section>
       
       <SelectedWorks />
+      <AIWorkflowFeature />
       <ProcessSection />
       <Footer />
     

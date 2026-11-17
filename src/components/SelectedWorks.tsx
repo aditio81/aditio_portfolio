@@ -21,7 +21,7 @@ export default function SelectedWorks() {
             Selected Works
           </h2>
           <p className="text-xl text-muted max-w-2xl leading-relaxed">
-            UI/UX, Lottie animation and explainer videos, from client work to self-initiated concept projects.
+            A curated collection of scalable digital products, high-velocity design systems, and tactile motion studies.
           </p>
           
           {/* Tombol Navigasi ke Halaman Work */}

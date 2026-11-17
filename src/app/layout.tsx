@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Aditio Dwi Novanto | Product & Motion Designer",
-  description: "Portfolio of Aditio Dwi Novanto, a Product & Motion Designer: UI/UX, Lottie animation and explainer videos.",
+  description: "Bridging complex UI systems, emotive micro-interactions, and high-performance front-end code.",
 };
 
 export default function RootLayout({

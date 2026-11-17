@@ -78,9 +78,9 @@ export default function AboutPage() {
 
                 {/* Info Item 2 */}
                 <div className="p-4 bg-background border border-border rounded-xl">
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Experience</span>
-                <p className="font-bold text-foreground">Freelance since late 2021</p>
-                <p className="font-mono text-xs text-muted mt-1">Working directly with clients</p>
+                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Date of Birth</span>
+                <p className="font-bold text-foreground">[21 November], 1999</p>
+                <p className="font-mono text-xs text-muted mt-1">27 years old</p>
                 </div>
 
                 {/* Info Item 3 */}
@@ -92,8 +92,8 @@ export default function AboutPage() {
 
                 {/* Info Item 4 */}
                 <div className="p-4 bg-background border border-border rounded-xl">
-                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Status</span>
-                <p className="font-bold text-foreground">Open to in-house roles</p>
+                <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Marital Status</span>
+                <p className="font-bold text-foreground">Single</p>
                 </div>
 
                 {/* Info Item 5: PENGGANTI EDUCATION - Lebih Powerful */}
@@ -107,7 +107,7 @@ export default function AboutPage() {
                 <div className="p-4 bg-background border border-border rounded-xl">
                 <span className="font-mono text-[10px] text-muted uppercase tracking-wider block mb-2">Languages</span>
                 <p className="font-bold text-foreground">Indonesian (Native)</p>
-                <p className="font-mono text-xs text-muted mt-1">English (written & listening: good · speaking: developing)</p>
+                <p className="font-mono text-xs text-muted mt-1">English (Professional)</p>
                 </div>
 
                 {/* Info Item 7 */}
@@ -160,13 +160,13 @@ export default function AboutPage() {
             {/* Key Principles */}
             <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
-                ⚡ LIGHT BY DESIGN: LOTTIE-FRIENDLY ART
+                ⚡ TIMING FIDELITY: 60 FPS
               </span>
               <span className="px-4 py-2 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
-                ⚙️ AI AS COLLABORATOR: I KEEP THE CALL
+                ⚙️ SYSTEM LOGIC: TOKENIZED MOTION
               </span>
               <span className="px-4 py-2 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
-                💻 DESIGN TO DEPLOY: FIGMA → NEXT.JS
+                💻 FRONTEND SYNC: CODE-FIRST
               </span>
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function AboutPage() {
               Architecting cohesive multi-platform interfaces from atomic components to high-fidelity prototypes.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Figma", "Prototyping", "Design Systems", "User Research", "User Flows", "Wireframing"].map((skill) => (
+              {["Figma", "Prototyping", "Design Systems", "User Flows", "Wireframing"].map((skill) => (
                 <span key={skill} className="px-3 py-1 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
                   {skill}
                 </span>
@@ -322,7 +322,7 @@ export default function AboutPage() {
               Injecting kinetic life, feedback states, and spatial awareness into digital product workflows.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["After Effects", "Lottie", "Rive", "Illustrator", "Premiere Pro", "Micro-interactions"].map((skill) => (
+              {["Rive", "Lottie", "Framer Motion", "Micro-interactions", "After Effects"].map((skill) => (
                 <span key={skill} className="px-3 py-1 bg-background border border-border rounded-full text-xs font-mono text-foreground/80">
                   {skill}
                 </span>
@@ -354,8 +354,8 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-foreground mb-1">4+ Years Freelancing With Clients.</h4>
-                  <p className="text-xs font-mono text-muted">WORKING DIRECTLY WITH CLIENTS SINCE LATE 2021</p>
+                  <h4 className="font-bold text-foreground mb-1">4+ Years in Digital Design & Motion.</h4>
+                  <p className="text-xs font-mono text-muted">PRODUCTION-GRADE DELIVERY SINCE 2022</p>
                 </div>
               </div>
 
@@ -367,8 +367,8 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-foreground mb-1">Open to In-House Product & Motion Roles.</h4>
-                  <p className="text-xs font-mono text-muted">UI/UX // LOTTIE // FRONT-END</p>
+                  <h4 className="font-bold text-foreground mb-1">Available for Select Freelance & Lead Roles.</h4>
+                  <p className="text-xs font-mono text-muted">DESIGN SYSTEMS // PRODUCT ART DIRECTION</p>
                 </div>
               </div>
 
@@ -381,7 +381,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground mb-1">Based in Malang, Open to Remote & Relocation.</h4>
-                  <p className="text-xs font-mono text-muted">UTC+7 // COMFORTABLE WITH ASYNC, WRITTEN COMMUNICATION</p>
+                  <p className="text-xs font-mono text-muted">UTC+7 // ASYNC & REALTIME SYNC CAPABLE</p>
                 </div>
               </div>
             </div>
@@ -395,7 +395,7 @@ export default function AboutPage() {
                 Building scalable products with kinetic motion.
               </h3>
               <p className="text-muted leading-relaxed mb-8">
-                I&apos;m currently looking for an in-house role where I can take a product from idea to release. If you&apos;re hiring for product design or motion, I&apos;d love to talk.
+                I'm currently open to select freelance projects and lead product design roles. Let's discuss how my hybrid skill set can bring tangible value to your team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
