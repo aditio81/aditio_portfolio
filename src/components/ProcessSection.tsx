@@ -8,7 +8,7 @@ export default function ProcessSection() {
         {/* Section Header */}
         <div className="mb-16 md:mb-20">
           <span className="font-mono text-xs text-muted tracking-widest uppercase block mb-4">
-            03 // My Process
+            02 // My Process
           </span>
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-6">
             Design Thinking & Execution
@@ -29,7 +29,7 @@ export default function ProcessSection() {
             </div>
             <h3 className="text-3xl font-bold text-foreground mb-4">01. Discover & Define</h3>
             <p className="text-muted leading-relaxed mb-8 max-w-lg">
-              Mapping user pain points, business goals, and technical constraints before sketching a single pixel. Ensuring the &apos;why&apos; is solid before the &apos;how&apos;.
+              Mapping user pain points, business goals, and technical constraints before sketching a single pixel. Ensuring the 'why' is solid before the 'how'.
             </p>
             <div className="flex flex-wrap gap-2">
               {["User Journeys", "Information Architecture", "Strategic Scope"].map((tag) => (
@@ -68,7 +68,7 @@ export default function ProcessSection() {
               Injecting life into the interface. Crafting micro-interactions and Lottie animations that guide user attention and provide feedback.
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Rive", "Lottie", "Framer Motion"].map((tag) => (
+              {["Rive", "Lottie", "After Effects"].map((tag) => (
                 <span key={tag} className="px-2 py-1 bg-background border border-border rounded text-[10px] font-mono text-foreground/80">
                   {tag}
                 </span>

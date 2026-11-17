@@ -28,7 +28,7 @@ export default function WorkPage() {
             Selected Works
           </h1>
           <p className="text-xl text-muted max-w-2xl leading-relaxed mb-12">
-            A curated collection of scalable digital products, high-velocity design systems, and tactile motion studies.
+            UI/UX, Lottie animation and explainer videos, from client work to self-initiated concept projects.
           </p>
 
           {/* Filter Buttons */}
