@@ -41,7 +41,7 @@ const content: Record<"id" | "en", Dict> = {
     location: "Malang, Indonesia · Terbuka untuk relokasi ke Jakarta",
     backBtn: "← Kembali ke Portofolio",
     pdfBtn: "Unduh PDF",
-    pdfHref: "/cv-aditio-dwi-novanto-id.pdf",
+    pdfHref: "/Aditio Dwi Novanto _ Product & Motion Designer_id.pdf",
     summaryTitle: "Ringkasan",
     summary:
       "Product & Motion Designer lulusan D4 Desain Komunikasi Visual. Sejak 2021 bekerja freelance langsung dengan klien internasional (termasuk di Jerman): animasi Lottie, video, ilustrasi, dan UI landing page, hingga front-end Next.js. Satu klien (Stockt) memperluas kontrak saya tiga kali, dari animasi Lottie ke redesain UI dan video onboarding. Terbiasa menjadikan AI kolaborator proses (riset referensi, bedah logika UX, draf layout) dengan keputusan akhir di tangan saya. Mencari peran in-house tempat saya bisa mengerjakan produk dari ide hingga rilis.",
@@ -131,7 +131,7 @@ const content: Record<"id" | "en", Dict> = {
     location: "Malang, Indonesia · Open to relocating to Jakarta",
     backBtn: "← Back to Portfolio",
     pdfBtn: "Download PDF",
-    pdfHref: "/cv-aditio-dwi-novanto-en.pdf",
+    pdfHref: "/Aditio Dwi Novanto _ Product & Motion Designer-en.pdf",
     summaryTitle: "Summary",
     summary:
       "Product & Motion Designer with a D4 degree in Visual Communication Design. Freelancing directly with international clients since 2021 (including in Germany): Lottie animation, video, illustration and landing-page UI, through to Next.js front-end. One client (Stockt) extended my contract three times, from Lottie animation to a UI redesign and an onboarding video. Used to treating AI as a process collaborator (reference research, stress-testing UX logic, layout drafts) while keeping the final decisions. Looking for an in-house role where I can work on a product from idea to release.",
