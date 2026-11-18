@@ -1,6 +1,7 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
+import Reveal from "./Reveal";
 
 export default function SelectedWorks() {
   // Pisahkan proyek berdasarkan kategori
@@ -13,7 +14,7 @@ export default function SelectedWorks() {
       <div className="container mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-16 md:mb-20">
+        <Reveal className="mb-16 md:mb-20">
           <span className="font-mono text-xs text-muted tracking-widest uppercase block mb-4">
             01 // Archive & Commissions
           </span>
@@ -34,29 +35,29 @@ export default function SelectedWorks() {
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
-        </div>
+        </Reveal>
 
         {/* Asymmetric Layout: Large Left + Stacked Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <Reveal className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           
           {/* KOLOM KIRI: Kartu UI/UX Besar (Spans 2 kolom) */}
           {uiuxProject && (
-            <div className="lg:col-span-2">
+            <Reveal className="lg:col-span-2" delay={200}>
               <ProjectCard project={uiuxProject} />
-            </div>
+            </Reveal>
           )}
 
           {/* KOLOM KANAN: Motion + Video Stacked Vertikal */}
-          <div className="flex flex-col gap-6 lg:gap-8">
+          <Reveal className="flex flex-col gap-6 lg:gap-8" delay={300}>
             {motionProject && (
               <ProjectCard project={motionProject} />
             )}
             {videoProject && (
               <ProjectCard project={videoProject} />
             )}
-          </div>
+          </Reveal>
 
-        </div>
+        </Reveal>
 
       </div>
     </section>

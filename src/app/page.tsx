@@ -28,7 +28,7 @@ export default function Home() {
         <div className="container mx-auto px-6 relative z-10">
           
           {/* Tag - Top Left */}
-          <div className="mb-8">
+          <div className="mb-8 hero-enter hero-enter-1">
             <span className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-muted bg-surface/50 backdrop-blur-sm px-4 py-2 rounded-full border border-border">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-orange animate-pulse"></span>
               Available for select freelance and lead roles
@@ -36,13 +36,13 @@ export default function Home() {
           </div>
 
           {/* Massive Headline */}
-          <h1 className="text-[12vw] md:text-[9rem] font-bold tracking-tighter leading-[0.85] mb-8">
+          <h1 className="text-[12vw] md:text-[9rem] font-bold tracking-tighter leading-[0.85] mb-8 hero-enter hero-enter-2">
             Product &<br />
             <span className="text-foreground">Motion</span> Designer
           </h1>
 
           {/* Sub-headline & Name */}
-          <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-6 mb-12 hero-enter hero-enter-3">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Aditio Dwi Novanto
             </h2>
@@ -52,12 +52,12 @@ export default function Home() {
           </div>
 
           {/* Body Text */}
-          <p className="text-xl md:text-2xl text-muted max-w-3xl leading-relaxed mb-12">
+          <p className="text-xl md:text-2xl text-muted max-w-3xl leading-relaxed mb-12 hero-enter hero-enter-4">
             Bridging complex UI systems, emotive micro-interactions, and high-performance front-end code into cohesive digital experiences that feel alive.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 mb-20 hero-enter hero-enter-5">
             <Link 
               href="/work" 
               className="inline-flex items-center justify-center px-8 py-4 bg-accent-orange text-white font-mono text-sm rounded-full hover:bg-foreground transition-all duration-300 group hover:scale-105"
@@ -75,14 +75,14 @@ export default function Home() {
           </div>
 
           {/* Stats Row - Full Width */}
-          <div className="grid grid-cols-3 gap-8 md:gap-16 py-12 border-t-2 border-border">
+          <div className="grid grid-cols-3 gap-8 md:gap-16 py-12 border-t-2 border-border hero-enter hero-enter-6">
             <div className="space-y-2">
               <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">5+</p>
               <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Years Experience</p>
             </div>
             <div className="space-y-2">
               <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">100+</p>
-              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Projects Delivered</p>
+              <p className="font-mono text-xs md:text-sm text-muted uppercase tracking-wider">Projects Completed</p>
             </div>
             <div className="space-y-2">
               <p className="font-mono text-5xl md:text-6xl font-bold text-foreground">100%</p>
@@ -102,7 +102,7 @@ export default function Home() {
               
               {/* The Actual Rive Animation Container */}
               {/* FIXED: Menggunakan arbitrary value agar valid di Tailwind default */}
-              <div className="relative z-10 w-125 h-125 pointer-events-auto rive-wrapper">
+              <div className="relative z-10 w-125 h-125 pointer-events-auto rive-wrapper hero-enter hero-enter-orbi">
                 <OrbiRive />
               </div>
             </div>
